@@ -1,0 +1,65 @@
+name: Build & Release Plugin
+
+# Quando esta Action é executada
+on:
+  push:
+    tags:
+      - 'v*'  # Dispara quando você faz push de uma tag começando com 'v'
+
+# Permissões necessárias para criar a release
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build ZIP and create Release
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Baixa o código do repositório
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # 2. Extrai a versão da tag (ex: v1.0.1 → 1.0.1)
+      - name: Extrair versão da tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      # 3. Cria o ZIP do plugin sem arquivos de desenvolvimento
+      - name: Criar ZIP do plugin
+        run: |
+          mkdir -p build
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.gitignore' \
+            --exclude='build' \
+            --exclude='.vscode' \
+            --exclude='.idea' \
+            --exclude='*.md' \
+            --exclude='CHANGELOG.md' \
+            ./ build/cache-busting/
+          cd build && zip -r cache-busting.zip cache-busting/
+          ls -la
+
+      # 4. Cria a Release no GitHub com o ZIP anexado
+      - name: Criar Release no GitHub
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/cache-busting.zip
+          generate_release_notes: true
+          name: "v${{ steps.version.outputs.VERSION }}"
+          body: |
+            ## 📦 Cache Busting v${{ steps.version.outputs.VERSION }}
+
+            ### 📥 Instalação
+
+            1. Baixe o arquivo `cache-busting.zip` abaixo
+            2. No WordPress: **Plugins → Adicionar novo → Enviar plugin**
+            3. Selecione o ZIP e clique em **Instalar agora**
+            4. Ative o plugin
+            5. Acesse **Configurações → Cache Busting**
+
+            ---
+            
+            ### 📝 Mudanças nesta versão
