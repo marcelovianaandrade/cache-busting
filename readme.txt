@@ -50,3 +50,9 @@ Não. Apenas arquivos servidos do seu próprio domínio (URL do site) recebem o 
 * Interface administrativa com cards de versão atual e atualização rápida
 * Filtros `style_loader_src` e `script_loader_src` aplicados a arquivos do próprio site
 * Validação de formato AAAA.MM.DD.N
+
+## 📸 Screenshots
+
+![Tela principal](assets/screenshot-1.png)
+*Interface administrativa com cards de versão atual e atualização rápida*
+
