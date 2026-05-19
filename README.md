@@ -32,6 +32,16 @@ Plugin WordPress leve para **forçar a atualização de CSS e JS nos navegadores
 - 🧩 **Compatível** com Elementor, WooCommerce e qualquer tema/plugin
 - 🪶 **Leve** — arquivo único, sem dependências, sem JS no front-end
 
+## 📸 Screenshots
+
+### Interface principal
+![Interface principal do plugin com edição manual e seção 'Como funciona'](assets/01-interface-principal.jpg)
+*Painel administrativo em **Configurações → Cache Busting**: versão atual, sugestão de próxima versão, formulário de edição manual e explicação detalhada de como o plugin funciona.*
+
+### Versão atualizada com sucesso
+![Plugin após atualização da versão com mensagens de confirmação](assets/02-versao-atualizada.jpg)
+*Feedback visual quando a versão é atualizada — mensagens de confirmação informam que os navegadores recarregarão os arquivos automaticamente.*
+
 ## 📦 Instalação
 
 ### Método 1: Upload via painel do WordPress

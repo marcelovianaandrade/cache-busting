@@ -1,12 +1,10 @@
-name: Build & Release Plugin
+﻿name: Build & Release Plugin
 
-# Quando esta Action é executada
 on:
   push:
     tags:
-      - 'v*'  # Dispara quando você faz push de uma tag começando com 'v'
+      - 'v*'
 
-# Permissões necessárias para criar a release
 permissions:
   contents: write
 
@@ -16,16 +14,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Baixa o código do repositório
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      # 2. Extrai a versão da tag (ex: v1.0.1 → 1.0.1)
       - name: Extrair versão da tag
         id: version
         run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
-      # 3. Cria o ZIP do plugin sem arquivos de desenvolvimento
       - name: Criar ZIP do plugin
         run: |
           mkdir -p build
@@ -38,11 +33,12 @@ jobs:
             --exclude='.idea' \
             --exclude='*.md' \
             --exclude='CHANGELOG.md' \
+            --exclude='assets' \
+            --exclude='Screenshorts' \
             ./ build/cache-busting/
           cd build && zip -r cache-busting.zip cache-busting/
           ls -la
 
-      # 4. Cria a Release no GitHub com o ZIP anexado
       - name: Criar Release no GitHub
         uses: softprops/action-gh-release@v2
         with:
@@ -60,6 +56,10 @@ jobs:
             4. Ative o plugin
             5. Acesse **Configurações → Cache Busting**
 
+            ### 🚀 Uso rápido
+
+            Após ativar, acesse **Configurações → Cache Busting** e clique em **Forçar Atualização Agora** para invalidar o cache dos navegadores.
+
             ---
-            
+
             ### 📝 Mudanças nesta versão
