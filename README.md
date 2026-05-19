@@ -1,8 +1,22 @@
-# Cache Busting
+﻿# Cache Busting
 
 [![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-21759B?logo=wordpress&logoColor=white)](https://wordpress.org/)
 [![PHP](https://img.shields.io/badge/PHP-7.2%2B-777BB4?logo=php&logoColor=white)](https://www.php.net/)
 [![License: GPL v2](https://img.shields.io/badge/License-GPLv2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
+
+<p align="center">
+  <a href="https://github.com/marcelovianaandrade/cache-busting/releases/latest/download/cache-busting.zip">
+    <img src="https://img.shields.io/badge/⬇️_Baixar_última_versão-2271B1?style=for-the-badge&logo=wordpress&logoColor=white" alt="Baixar plugin">
+  </a>
+  &nbsp;
+  <a href="https://github.com/marcelovianaandrade/cache-busting/releases">
+    <img src="https://img.shields.io/badge/📦_Ver_releases-555?style=for-the-badge" alt="Ver releases">
+  </a>
+  &nbsp;
+  <a href="https://github.com/marcelovianaandrade/cache-busting/stargazers">
+    <img src="https://img.shields.io/badge/⭐_Star-FFC107?style=for-the-badge" alt="Star">
+  </a>
+</p>
 
 Plugin WordPress leve para **forçar a atualização de CSS e JS nos navegadores** através de versionamento por query string. Oferece uma interface administrativa simples para gerenciar a versão e exibir o histórico da última atualização.
 
