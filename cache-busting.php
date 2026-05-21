@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:       Cache Busting
- * Plugin URI:        https://github.com/marceloviana/cache-busting
+ * Plugin URI:        https://github.com/marcelovianaandrade/cache-busting
  * Description:       Força a atualização de CSS e JS nos navegadores através de versionamento por query string. Inclui interface administrativa para alterar a versão e visualizar o histórico.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 5.0
  * Requires PHP:      7.2
  * Author:            Marcelo Viana de Andrade
